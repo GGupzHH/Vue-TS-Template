@@ -31,11 +31,12 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component
 export default class HelloWorld extends Vue {
-  @Prop() private msg!: string;
+  // ! TS 非空断言操作符 这个变量一定不是undefined和null
+  @Prop() private msg!: string
 }
 </script>
 
