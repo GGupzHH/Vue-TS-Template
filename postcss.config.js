@@ -1,4 +1,4 @@
-model.exports = {
+module.exports = {
   plugins: {
     autoprefixer: {}
   }
