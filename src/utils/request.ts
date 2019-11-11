@@ -21,15 +21,24 @@ axios.interceptors.request.use(
 // 响应 拦截器
 axios.interceptors.response.use(
   response => {
-    if (response.data.error === 0) {
+    if (response.status === 200) {
+      if (response.data.code !== 0) {
+        return response.data
+      } else {
+        Message({
+          message: response.data.msg,
+          type: 'error',
+          duration: 5 * 1000
+        })
+      }
       return response.data
     } else {
       Message({
-        message: 'error',
+        message: 'Serve Error',
         type: 'error',
         duration: 3 * 1000
       })
-      // return Promise.reject(new Error(response.message || 'error'))
+      return Promise.reject(new Error('Serve Error'))
     }
   }, error => {
     Promise.reject(error)
