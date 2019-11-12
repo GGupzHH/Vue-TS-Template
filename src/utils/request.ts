@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig } from 'axios'
+import axios, { AxiosInstance } from 'axios'
 import { Message } from 'element-ui'
 
 // baseUrl
@@ -8,6 +8,7 @@ axios.defaults.baseURL = process.env.VUE_APP_BASEURL ? process.env.VUE_APP_BASEU
 axios.defaults.headers = {
   'Content-Type': 'application/json;charset=utf8'
 }
+
 
 // 请求 拦截器
 axios.interceptors.request.use(
@@ -45,11 +46,16 @@ axios.interceptors.response.use(
   }
 )
 
+declare module 'Vue/types/vue' {
+  interface Vue {
+    $axios: AxiosInstance
+  }
+}
 function formateURLOnlyGet(link: string, json: object) {
   let url = link
   const data = Object.entries(json)
   if (data.length) {
-    url += url.indexOf('?') == -1 ? '?' : ''
+    url += url.indexOf('?') === -1 ? '?' : ''
     url += Object.entries(data)
       .map((item: any) => {
         return item[1].join('=')

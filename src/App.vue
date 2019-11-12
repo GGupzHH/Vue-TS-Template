@@ -8,13 +8,31 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import HelloWorld from './components/HelloWorld.vue'
+import { getInfo } from './api/infoPage/index'
 
 @Component({
   components: {
     HelloWorld,
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  public async getInfo() {
+    const res = await getInfo({
+      url: '/admin',
+      data: {
+        name: 'zs'
+      }
+    })
+    console.log(res)
+  }
+  private created() {
+    console.log('creater')
+    this.getInfo()
+  }
+  private mounted() {
+    console.log('mpunted')
+  }
+}
 </script>
 
 <style scoped lang="less">
