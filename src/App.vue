@@ -1,6 +1,8 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
+    <el-button type="primary" @click="getEvent">{{ bunText }}</el-button>
+    <router-view></router-view>
     <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
   </div>
 </template>
@@ -9,13 +11,26 @@
 import { Component, Vue } from 'vue-property-decorator'
 import HelloWorld from './components/HelloWorld.vue'
 import { getInfo } from './api/infoPage/index'
-
 @Component({
   components: {
-    HelloWorld,
+    HelloWorld
   },
 })
 export default class App extends Vue {
+  public data() {
+    return {
+      bunText: 'It is EventBus'
+    }
+  }
+  public getEvent() {
+    // tslint 默认不允许访问对象的隐式声明
+    // https://palantir.github.io/tslint/rules/member-access/
+    console.log(this)
+    this['$bus'].$emit('getf', '可以传值了')
+    this['$router'].replace({
+      path: 'EventBus'
+    })
+  }
   public async getInfo() {
     const res = await getInfo({
       url: '/admin',
@@ -31,6 +46,9 @@ export default class App extends Vue {
   }
   private mounted() {
     console.log('mpunted')
+    this['$bus'].$on('getT', (parms: string) => {
+      this['bunText'] = parms
+    })
   }
 }
 </script>
