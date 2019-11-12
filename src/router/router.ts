@@ -12,4 +12,9 @@ export default [
     // which is lazy-loaded when tniqinge he route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
   },
+  {
+    path: '/EventBus',
+    name: 'EventBus',
+    component: () => import('../components/EventBus/Bus.vue')
+  }
 ]
