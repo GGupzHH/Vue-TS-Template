@@ -1,24 +1,30 @@
 <template>
-  <div class='busc'>
-    {{ busc }}
+  <div class='echarts'>
+    <div ref="echarts_box" class="echarts_box"></div>
   </div>
 </template>
 
 <script lang='ts'>
 import { Component, Vue } from 'vue-property-decorator'
+import echarts from 'echarts'
 @Component({
-  name: 'busc'
+  name: 'echarts',
+  components: {
+
+  }
 })
 export default class App extends Vue {
-  public busc: string = 'busc'
+  public data() {
+    return {}
+  }
   private created() {
     console.log('creater')
   }
   private mounted() {
     console.log('mpunted')
-    this['$bus'].$on('getC_F', (parms: any) => {
-      this['busc'] = parms
-    })
+    console.log(this)
+    // const echarts_init = echarts.init(this['$refs'].echarts_box)
+
   }
 }
 </script>

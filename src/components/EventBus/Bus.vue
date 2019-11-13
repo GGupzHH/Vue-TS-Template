@@ -18,16 +18,9 @@ import BusF from './BusF.vue'
   }
 })
 export default class App extends Vue {
-  public data() {
-    return {
-      BusText: '还没有传值'
-    }
-  }
+  public BusText: string = '还没有传值'
   public getC_F() {
     this['$bus'].$emit('getC_F', '所有的子组件收到了')
-  }
-  public getC_callback() {
-
   }
   public created() {
     console.log('creater')

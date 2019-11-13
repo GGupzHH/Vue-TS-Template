@@ -9,6 +9,8 @@
     ]
   },
   "rules": {
+    "//": "是否可以获取隐式属性",
+    "no-string-literal": false, 
     "indent": [true, "spaces", 2],
     "interface-name": false,
     "no-console": [false],

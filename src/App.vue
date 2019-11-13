@@ -17,16 +17,13 @@ import { getInfo } from './api/infoPage/index'
   },
 })
 export default class App extends Vue {
-  public data() {
-    return {
-      bunText: 'It is EventBus'
-    }
-  }
+  public bunText: string = 'It is EventBus'
   public getEvent() {
     // tslint 默认不允许访问对象的隐式声明
     // https://palantir.github.io/tslint/rules/member-access/
     console.log(this)
-    this['$bus'].$emit('getf', '可以传值了')
+    const bus = '$bus'
+    this[bus].$emit('getf', '可以传值了')
     this['$router'].replace({
       path: 'EventBus'
     })
@@ -46,7 +43,7 @@ export default class App extends Vue {
   }
   private mounted() {
     console.log('mpunted')
-    this['$bus'].$on('getT', (parms: string) => {
+    this['$bus'].$on('getT', (parms: any) => {
       this['bunText'] = parms
     })
   }
