@@ -13,6 +13,7 @@
     "core-js": "^3.3.2",
     "echarts": "^4.4.0",
     "element-ui": "^2.12.0",
+    "normalize.css": "^8.0.1",
     "vue": "^2.6.10",
     "vue-bus-ts": "^1.0.8",
     "vue-class-component": "^7.0.2",

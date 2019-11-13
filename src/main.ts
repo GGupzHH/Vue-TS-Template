@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import EventBus from 'vue-bus-ts'
 import { Button } from 'element-ui'
+import 'normalize.css'
 import 'element-ui/lib/theme-chalk/index.css'
 Vue.config.productionTip = false
 Vue.use(EventBus)
