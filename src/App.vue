@@ -2,8 +2,8 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <el-button type="primary" @click="getEvent">{{ bunText }}</el-button>
+    <el-button type="primary" @click="getEcharts">{{ EchartsName }}</el-button>
     <router-view></router-view>
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
   </div>
 </template>
 
@@ -18,14 +18,19 @@ import { getInfo } from './api/infoPage/index'
 })
 export default class App extends Vue {
   public bunText: string = 'It is EventBus'
+  public EchartsName: string = '柱状图'
   public getEvent() {
     // tslint 默认不允许访问对象的隐式声明
     // https://palantir.github.io/tslint/rules/member-access/
     console.log(this)
-    const bus = '$bus'
-    this[bus].$emit('getf', '可以传值了')
+    this['$bus'].$emit('getf', '可以传值了')
     this['$router'].replace({
       path: 'EventBus'
+    })
+  }
+  public getEcharts() {
+    this['$router'].replace({
+      path: 'echarts'
     })
   }
   public async getInfo() {

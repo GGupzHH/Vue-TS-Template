@@ -16,5 +16,10 @@ export default [
     path: '/EventBus',
     name: 'EventBus',
     component: () => import('../components/EventBus/Bus.vue')
+  },
+  {
+    path: '/echarts',
+    name: 'Echarts',
+    component: () => import('../components/Echarts/echarts.vue')
   }
 ]
