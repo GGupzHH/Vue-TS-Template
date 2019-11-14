@@ -1,0 +1,60 @@
+/*
+  GGupZhh less encapsulation
+  转载： https://juejin.im/post/5a31f53f51882555cc41deda
+*/
+
+
+/*-------------------------------------
+├   布局                              ┆
+└------------------------------------*/
+// 盒子宽高
+.size(@w, @h) {
+  width: @w;
+  height: @h;
+}
+
+// 最小尺寸 兼容IE
+.min-width(@min-w) {
+  min-width: @min-w;
+  _width: @min-w;
+}
+
+.min-height(@min-h) {
+  min-height: @min-h;
+  _height: @min-h;
+}
+
+// 块级元素垂直水平居中
+.v_l_cen() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+// 文字图片居中
+.center(text-x) {
+  text-align: center;
+}
+.center(text-y) {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+
+
+/*-------------------------------------
+├   字体                              ┆
+└------------------------------------*/
+// 字体大小
+.fz(@fz) { font-size: @fz; }
+
+// 字体大小、行高、高度
+.fz(@fz, @h, @lh: @h) { font-size: @fz; height: @h; line-height: @lh; }
+
+// 文本溢出省略号显示
+.ellipis() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

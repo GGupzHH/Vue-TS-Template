@@ -57,6 +57,7 @@ export default class App extends Vue {
 
 <style scoped lang="less">
 #app {
+  .size(100px, 100px);
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
